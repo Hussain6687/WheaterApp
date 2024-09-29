@@ -76,7 +76,7 @@ function getWeather($city = 'karachi')
     $result = json_decode($result, true);
     return $result;
 }
-$city = 'Karachi';
+$city = '';
 if (isset($_POST['submit']) && !empty($_POST['city'])) {
     $cityCountry = explode(',', $_POST['city']);
     $city = trim(str_replace(' ', '%20', $cityCountry[0]));
@@ -109,25 +109,26 @@ $getWeahter = getWeather($city);
 
     <div class="weather-app">
         <!-- Weather Info -->
-        <div class="current-weather">
+        <?php if (!$city == '') : ?>
+            <div class="current-weather">
 
-            <h1 id="location"><?= $getWeahter['name']; ?></h1>
+                <h1 id="location"><?= $getWeahter['name']; ?></h1>
 
-            <div class="weather-icon">
-                <!-- This will be dynamically updated using the OpenWeather API's icon code -->
-                <img id="weather-icon" src="https://openweathermap.org/img/wn/<?= $getWeahter['weather'][0]['icon']; ?>@2x.png" alt="Weather Icon" />
+                <div class="weather-icon">
+                    <!-- This will be dynamically updated using the OpenWeather API's icon code -->
+                    <img id="weather-icon" src="https://openweathermap.org/img/wn/<?= $getWeahter['weather'][0]['icon']; ?>@2x.png" alt="Weather Icon" />
+                </div>
+                <h2 id="temperature"><?= round($getWeahter['main']['temp'] - 273.15) ?? 'error'; ?>C°</h2>
+                <div class="range">
+                    <span id="low"><?= round($getWeahter['main']['temp_min'] - 273.15) ?? 'error'; ?> C°</span>
+                    <span id="high"><?= round($getWeahter['main']['temp_max'] - 273.15) ?? 'error'; ?> C°</span>
+                </div>
+                <p id="description"><?= $getWeahter['weather'][0]['main']; ?></p>
+                <p id="description">Wind: <?= $getWeahter['wind']['speed']; ?> M/H</p>
+                <p id="description">Date: <?= date('d-M-y', $getWeahter['dt']) ?></p>
+
             </div>
-            <h2 id="temperature"><?= round($getWeahter['main']['temp'] - 273.15) ?? 'error'; ?>C°</h2>
-            <div class="range">
-                <span id="low"><?= round($getWeahter['main']['temp_min'] - 273.15) ?? 'error'; ?> C°</span>
-                <span id="high"><?= round($getWeahter['main']['temp_max'] - 273.15) ?? 'error'; ?> C°</span>
-            </div>
-            <p id="description"><?= $getWeahter['weather'][0]['main']; ?></p>
-            <p id="description">Wind: <?= $getWeahter['wind']['speed']; ?> M/H</p>
-            <p id="description">Date: <?= date('d-M-y', $getWeahter['dt']) ?></p>
-
-        </div>
-
+        <?php endif; ?>
         <!-- Forecast Section -->
         <!-- <div class="forecast">
             <div class="day">
