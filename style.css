@@ -1,0 +1,142 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #4a90e2, #e8a87c);
+}
+
+.weather-app {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+/* Current Weather Styles */
+.current-weather h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.weather-icon {
+    font-size: 64px;
+    margin: 20px 0;
+}
+
+.current-weather h2 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.range {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.range span {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+/* Forecast Styles */
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.day p {
+    margin: 5px 0;
+}
+
+.icon {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Icon Styles */
+/* .icon.thunderstorm::before {
+    content: "⛈️";
+}
+
+.icon.rain::before {
+    content: "🌧️";
+}
+
+.icon.cloudy::before {
+    content: "☁️";
+}
+
+.icon.sunny::before {
+    content: "☀️";
+} */
+
+/* Search Form Styles */
+.search {
+    margin-top: 30px;
+}
+
+label {
+    font-size: 16px;
+    color: white;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+button:focus {
+    outline: none;
+}
